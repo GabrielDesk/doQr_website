@@ -29,7 +29,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header className="flow overflow-hidden top-0 fixed z-10 flex flex-row h-[10%] w-full bg-background shadow-sm border-b-2">
+        <header className="flow overflow-hidden top-0 fixed z-10 flex flex-row md:h-[10%] w-full bg-background shadow-sm border-b-2">
           <div className="flex flex-row items-center justify-between flex-1 px-2 md:px-10">
             <div className="w-full items-center flex gap-4 flex-row">
               {/* <h1 className="text-background flex p-1 rounded-md text-xl bg-primary font-bold"> */}

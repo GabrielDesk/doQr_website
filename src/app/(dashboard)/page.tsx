@@ -233,9 +233,9 @@ export default function Dashboard() {
 
   return (
     <>
-      <div className="grid grid-rows-[20px_1fr_20px] bg-background min-h-screen mt-1 mb-10 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <div className="grid md:grid-rows-[20px_1fr_20px] grid-rows-[10px_1fr_10px] bg-background md:min-h-screen mt-24 md:mt-1 md:mb-10 sm:p-20 font-[family-name:var(--font-geist-sans)]">
         <main className="flex flex-col gap-6 sm:items-start">
-          1{" "}
+          {" "}
           <div>
             <h1 className="text-text text-3xl font-bold">
               Controle de Funcionários
@@ -289,7 +289,7 @@ export default function Dashboard() {
               </div>
             </div>
 
-            <div className="w-full flex flex-row items-center">
+            <div className="w-full flex overflow-scroll flex-row items-center">
               <Table<IEmployee>
                 actions={(rowData) => actions(rowData)}
                 shouldHaveActions={true}
