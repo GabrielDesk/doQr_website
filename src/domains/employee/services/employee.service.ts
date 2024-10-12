@@ -22,14 +22,8 @@ export const EmployeeService = {
   getAll: async (): Promise<IGetAllEmployeesResponse> => {
     try {
       const response = await fetch(buildUrl(ENDPOINTS.GET_ALL_EMPLOYEES));
-      //   console.log(response);
-      // Check if the response is OK
-      //   if (!response.ok) {
-      //     throw new Error(`Failed to fetch employees: ${response.statusText}`);
-      //   }
 
       const data = await response.json();
-      console.log({ data });
 
       return data;
     } catch (error) {
@@ -43,20 +37,13 @@ export const EmployeeService = {
    * @throws Will throw an error if the fetch operation fails
    */
   delete: async (employeeId: string) => {
-    console.log("deleteEmployee", employeeId);
     try {
       const response = await fetch(
         buildUrl(`${ENDPOINTS.DELETE_EMPLOYEE}/${employeeId}`),
         { method: "DELETE" }
       );
-      console.log(response);
-      // Check if the response is OK
-      //   if (!response.ok) {
-      //     throw new Error(`Failed to fetch employees: ${response.statusText}`);
-      //   }
 
       const data = await response.json();
-      console.log({ data });
 
       return data;
     } catch (error) {
@@ -71,7 +58,6 @@ export const EmployeeService = {
    * @throws Will throw an error if the fetch operation fails
    */
   getByName: async (name: string) => {
-    console.log("searching", name);
     try {
       const response = await fetch(
         buildUrl(`${ENDPOINTS.GET_EMPLOYEE_BY_NAME}`),
@@ -82,7 +68,6 @@ export const EmployeeService = {
           body: JSON.stringify({ Name: name }),
         }
       );
-      console.log(response);
 
       // Check if the response is OK
       if (!response.ok) {
@@ -90,7 +75,6 @@ export const EmployeeService = {
       }
 
       const data = await response.json();
-      console.log({ data });
 
       return data;
     } catch (error) {
@@ -105,9 +89,7 @@ export const EmployeeService = {
    * @throws Will throw an error if the fetch operation fails
    */
   createEmployee: async (request: IEmployee) => {
-    console.log("creating", request);
     const req = JSON.stringify(request);
-    console.log("req", req);
 
     try {
       const response = await fetch(buildUrl(`${ENDPOINTS.ADD_EMPLOYEE}`), {
@@ -115,16 +97,8 @@ export const EmployeeService = {
         headers: { "Content-Type": "application/json" },
         body: req,
       });
-      console.log(response);
-
-      // Check if the response is OK
-      // if (!response.ok) {
-      //   throw new Error(`Failed to add employee(s): ${response.statusText}`);
-      //   return null;
-      // }
 
       const data = await response.json();
-      console.log({ data });
 
       return data;
     } catch (error) {
@@ -140,13 +114,11 @@ export const EmployeeService = {
    * @throws Will throw an error if the fetch operation fails
    */
   updateEmployee: async (request: IEmployee) => {
-    console.log("Updating", request);
     const req = {
       ...request,
       status: request.status,
       employeeContractType: request.employeeContractType,
     };
-    console.log("req", req);
 
     const response = await fetch(buildUrl(`${ENDPOINTS.UPDATE_EMPLOYEE}`), {
       method: "PUT",
@@ -154,8 +126,6 @@ export const EmployeeService = {
       body: JSON.stringify(req),
     });
     try {
-      console.log(response);
-
       // Check if the response is OK
       if (!response.ok) {
         Error(`Failed to add employee(s): ${response.statusText}`);
@@ -163,7 +133,6 @@ export const EmployeeService = {
       }
 
       const data = await response.json();
-      console.log({ data });
 
       return data;
     } catch (error) {
