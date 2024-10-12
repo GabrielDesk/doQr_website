@@ -4,7 +4,6 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,7 +15,6 @@
 
 body {
   color: var(--foreground);
-  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -25,3 +23,51 @@ body {
     text-wrap: balance;
   }
 }
+
+@font-face {
+  src: url(fonts/Ionicons.ttf);
+  font-family: "Ionicons";
+}
+
+@font-face {
+  src: url(fonts/FontAwesome.ttf);
+  font-family: "FontAwesome";
+}
+
+@font-face {
+  src: url(fonts/FontAwesome5_Brands.ttf);
+  font-family: "FontAwesome5_Brands";
+  font-weight: 400; /* Regular weight */
+  font-style: normal;
+}
+
+@font-face {
+  src: url(fonts/FontAwesome5_Regular.ttf);
+  font-family: "FontAwesome5_Regular";
+  font-weight: 400; /* Regular weight */
+  font-style: normal;
+}
+
+@font-face {
+  src: url(fonts/FontAwesome5_Solid.ttf);
+  font-family: "FontAwesome5_Solid";
+  font-weight: 900; /* Bold weight for solid */
+  font-style: normal;
+}
+
+@font-face {
+  src: url(fonts/MaterialIcons.ttf);
+  font-family: "MaterialIcons";
+}
+
+@font-face {
+  src: url(fonts/Feather.ttf);
+  font-family: "Feather";
+}
+
+@font-face {
+  src: url(fonts/MaterialCommunityIcons.ttf);
+  font-family: "MaterialCommunityIcons";
+}
+
+/* TODO: Add other icons fonts here */

@@ -1,0 +1,5 @@
+export enum AsyncStorageState {
+  KEY_EMPLOYEE = "@KEY_EMPLOYEE",
+  KEY_EMPLOYEEID = "@KEY_EMPLOYEEID",
+  KEY_PAGEMODE = "@KEY_PAGEMODE",
+}

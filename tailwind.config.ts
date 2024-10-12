@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { animationDelay, animations, keyframes } from "./src/animations/theme";
 
 const config: Config = {
   content: [
@@ -9,9 +10,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
         foreground: "var(--foreground)",
+        primary: "#7741FB",
+        text: "#0B0B0C",
+        background: "#FDFCFF",
       },
+      keyframes,
+
+      animation: {
+        ...animations,
+      },
+
+      transitionDelay: animationDelay,
     },
   },
   plugins: [],
