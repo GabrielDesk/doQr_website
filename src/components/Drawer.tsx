@@ -41,7 +41,7 @@ export const Drawer = ({
   };
 
   return showDrawer ? (
-    <div className="bg-background shadow-sm w-[50%] md:w-[20%] fixed z-50 top-0 right-0 h-screen animate-slide-in-right delay-700 backdrop-blur-sm border-x-2 border-text/10 transform translate-x-full">
+    <div className="bg-background shadow-sm w-[50%] md:w-[20%] fixed z-50 top-0 right-0 h-full animate-slide-in-right delay-700 backdrop-blur-sm border-x-2 border-text/10 transform translate-x-full">
       <div className="flex flex-col md:p-7 h-full w-full items-start justify-between">
         <header className="flex flex-row px-5 md:px-0 pt-5 gap-5 items-start justify-center">
           <button onClick={handleClose}>

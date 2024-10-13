@@ -16,25 +16,11 @@ export default function CreateEmployee() {
   const router = useRouter();
   const { getStorageData } = useAsyncStorage();
 
-  const [formData, setFormData] = useState<Partial<IEmployee>>({
-    // name: "",
-    // email: "",
-    // cpf: "",
-    // phone: "",
-    // birthDate: "",
-    // employeeContractType: undefined,
-    // status: undefined,
-  });
+  const [formData, setFormData] = useState<Partial<IEmployee>>({});
 
-  const [formValidity, setFormValidity] = useState<{ [key: string]: boolean }>({
-    // name: false,
-    // email: false,
-    // cpf: false,
-    // phone: false,
-    // birthDate: false,
-    // employeeContractType: false,
-    // status: false,
-  });
+  const [formValidity, setFormValidity] = useState<{ [key: string]: boolean }>(
+    {}
+  );
 
   const [touchedFields, setTouchedFields] = useState<{
     [key: string]: boolean;
@@ -94,6 +80,10 @@ export default function CreateEmployee() {
     return pattern.test(value);
   };
 
+  useEffect(() => {
+    return () => {};
+  }, [formData]);
+
   // Fetch initial data
   useEffect(() => {
     async function fetchData() {
@@ -101,6 +91,7 @@ export default function CreateEmployee() {
         const employeeData: IEmployee = await getStorageData({
           id: AsyncStorageState.KEY_EMPLOYEE,
         });
+        console.log({ employeeData });
         setFormData({
           employeeId: employeeData.employeeId,
           name: employeeData.name || "",
@@ -109,14 +100,16 @@ export default function CreateEmployee() {
           phone: employeeData.phone || "",
           birthDate: employeeData.birthDate || "",
           status:
-            employeeData.status === EStatus.Active
-              ? EStatus.Active
-              : EStatus.Inactive,
+            employeeData.status === EStatus.Inactive
+              ? EStatus.Inactive
+              : EStatus.Active,
           employeeContractType:
             employeeData.employeeContractType === EContractType.CLT
               ? EContractType.CLT
               : EContractType.PJ,
         });
+
+        console.log({ formData });
 
         const mode: TPageMode = await getStorageData({
           id: AsyncStorageState.KEY_PAGEMODE,
@@ -533,7 +526,7 @@ export default function CreateEmployee() {
               </label>
               <select
                 id="status"
-                value={formData.status || ""}
+                value={formData.status}
                 onChange={(e) => handleInputChange("status", e.target.value)}
                 onBlur={() => handleBlur("status")}
                 className={`border-2 p-2 text-text bg-background w-full border-text/10 rounded-md ${

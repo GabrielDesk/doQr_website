@@ -79,7 +79,7 @@ export const Table = <T extends Record<string, unknown>>({
   isLoading,
 }: ITable<T>) => {
   return (
-    <div className="w-full rounded-lg border-2 border-text/25">
+    <div className="w-screen md:w-full rounded-lg border-2 overflow-auto border-text/25">
       {isLoading && shimmerLoading(isLoading, head, shouldHaveActions)}
       {Array.isArray(rows) && rows.length === 0 && !isLoading && (
         <>
