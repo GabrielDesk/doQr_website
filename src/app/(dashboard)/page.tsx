@@ -289,7 +289,7 @@ export default function Dashboard() {
               </div>
             </div>
 
-            <div className="w-full flex overflow-scroll flex-row items-center">
+            <div className="w-full flex flex-row justify-center items-center">
               <Table<IEmployee>
                 actions={(rowData) => actions(rowData)}
                 shouldHaveActions={true}
