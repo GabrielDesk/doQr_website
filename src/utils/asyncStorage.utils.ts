@@ -27,9 +27,7 @@ export const useAsyncStorage = () => {
 
   const setStorageData = async ({ id, value }: setProps) => {
     try {
-      const response = await AsyncStorage.setItem(id, JSON.stringify(value));
-
-      console.log({ response });
+      await AsyncStorage.setItem(id, JSON.stringify(value));
     } catch (e) {
       console.log(e);
     }

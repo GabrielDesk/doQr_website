@@ -91,7 +91,6 @@ export default function CreateEmployee() {
         const employeeData: IEmployee = await getStorageData({
           id: AsyncStorageState.KEY_EMPLOYEE,
         });
-        console.log({ employeeData });
         setFormData({
           employeeId: employeeData.employeeId,
           name: employeeData.name || "",
@@ -108,8 +107,6 @@ export default function CreateEmployee() {
               ? EContractType.CLT
               : EContractType.PJ,
         });
-
-        console.log({ formData });
 
         const mode: TPageMode = await getStorageData({
           id: AsyncStorageState.KEY_PAGEMODE,
